@@ -34,7 +34,7 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    section { scroll-margin-top: 72px; }
+    section { scroll-margin-top: 112px; }
 
     /* ── Utilities ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
@@ -91,7 +91,7 @@
     /* ── Nav ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 40px; left: 0; right: 0;
       z-index: 100;
       background: rgba(11,21,38,.92);
       backdrop-filter: blur(12px);
@@ -134,7 +134,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 100px 0 80px;
+      padding: 140px 0 80px;
     }
     .hero-bg {
       position: absolute;
@@ -358,6 +358,12 @@
     }
     .contact-line a { font-size: .85rem; color: var(--blue-lt); }
     .contact-line a:hover { text-decoration: underline; }
+    .blurred {
+      filter: blur(5px);
+      user-select: none;
+      pointer-events: none;
+      display: inline-block;
+    }
 
     /* ── Case Studies ── */
     #case-studies { padding: 100px 0; }
@@ -545,7 +551,7 @@
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 72px; left: 0; right: 0;
+        top: 112px; left: 0; right: 0;
         background: var(--navy);
         padding: 24px;
         gap: 20px;
@@ -561,6 +567,15 @@
   </style>
 </head>
 <body>
+
+<!-- ── Archive Banner ── -->
+<div style="background:rgba(245,158,11,.07);border-bottom:1px solid rgba(245,158,11,.18);padding:10px 0;text-align:center;position:relative;z-index:101;">
+  <div class="container">
+    <p style="font-size:.78rem;color:var(--accent);font-weight:600;letter-spacing:.02em;">
+      Archive &mdash; Ohyrus Inc. operated from 2011 to 2013. The company was fully self-funded by its founders and was profitable.
+    </p>
+  </div>
+</div>
 
 <!-- ── Navigation ── -->
 <nav>
@@ -799,11 +814,11 @@
         <div class="about-highlights">
           <div class="highlight-item">
             <div class="highlight-dot"></div>
-            <p><strong>NYC Sales Office</strong> — 300 International Drive, Suite 100, Williamsville, New York 14221, USA</p>
+            <p><strong>NYC Sales Office</strong> — <span class="blurred">300 International Drive, Suite 100, Williamsville, New York 14221,</span> USA</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-dot"></div>
-            <p><strong>Development Center</strong> — TIC (Technology Incubation Center), NUST, H-12, Islamabad — Pakistan's best incubation center, supported by one of the world's top-300 universities</p>
+            <p><strong>Development Center</strong> — <span class="blurred">TIC (Technology Incubation Center), NUST, H-12, Islamabad,</span> Pakistan</p>
           </div>
         </div>
       </div>
@@ -812,18 +827,17 @@
         <div class="office-card">
           <span class="office-badge">Sales Office</span>
           <h4>New York, USA</h4>
-          <p>300 International Drive, Suite 100<br>Williamsville, NY 14221, United States</p>
+          <p><span class="blurred">300 International Drive, Suite 100, Williamsville, NY 14221,</span> USA</p>
           <div class="contact-line">
-            <a href="tel:+17168178555">+1 (716) 817-8555</a>
-            <a href="mailto:info@ohyrus.com">info@ohyrus.com</a>
+            <span style="font-size:.85rem;color:var(--gray-lt);">+1 <span class="blurred">(716) 817-8555</span></span>
           </div>
         </div>
         <div class="office-card">
           <span class="office-badge" style="color:#10b981;background:rgba(16,185,129,.1);">Development Center</span>
           <h4>Islamabad, Pakistan</h4>
-          <p>TIC — Technology Incubation Center<br>NUST, H-12, Islamabad, Pakistan</p>
+          <p><span class="blurred">TIC — Technology Incubation Center, NUST, H-12, Islamabad,</span> Pakistan</p>
           <div class="contact-line">
-            <a href="tel:+923135554885">+92 (0)313 555-4885</a>
+            <span style="font-size:.85rem;color:var(--gray-lt);">+92 <span class="blurred">(0)313 555-4885</span></span>
           </div>
         </div>
         <div class="office-card">
@@ -994,98 +1008,65 @@
 <section id="contact">
   <div class="container">
     <span class="tag">Get in Touch</span>
-    <h2 class="section-title">Let's Talk About<br>Your Project</h2>
+    <h2 class="section-title">Contact</h2>
     <p class="section-subtitle">
-      Tell us about your requirements. We'll get back to you within one business day.
+      Email: <a id="contact-email-link" href="#" style="color:var(--blue-lt);text-decoration:underline;"></a>
     </p>
-    <div class="contact-grid">
-
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name *</label>
-            <input id="name" type="text" placeholder="Your full name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input id="email" type="email" placeholder="you@company.com" required />
-          </div>
+    <div class="contact-info" style="max-width:540px;">
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.13 1.05.4 2.07.7 3.05a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.03-1.03a2 2 0 012.11-.45c.98.3 2 .57 3.05.7A2 2 0 0122 14z"/></svg>
         </div>
-        <div class="form-group">
-          <label for="subject">Subject *</label>
-          <input id="subject" type="text" placeholder="e.g. Web Development Project" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
-        </div>
-        <div class="form-group" style="flex-direction:row;align-items:center;gap:10px;">
-          <input type="checkbox" id="copy" style="width:16px;height:16px;accent-color:var(--blue);" />
-          <label for="copy" style="font-size:.85rem;color:var(--gray);cursor:pointer;">Send a copy to myself</label>
-        </div>
-        <div class="form-submit">
-          <button type="submit" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send Message
-          </button>
-        </div>
-        <div id="form-success" style="display:none;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:14px;font-size:.88rem;color:#10b981;margin-top:8px;">
-          ✓ Message sent! We'll be in touch shortly.
-        </div>
-      </form>
-
-      <div class="contact-info">
-        <div class="info-item">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.13 1.05.4 2.07.7 3.05a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.03-1.03a2 2 0 012.11-.45c.98.3 2 .57 3.05.7A2 2 0 0122 14z"/></svg>
-          </div>
-          <div>
-            <h4>Phone</h4>
-            <a href="tel:+17168178555">+1 (716) 817-8555 — USA</a>
-            <a href="tel:+923135554885">+92 (0)313 555-4885 — Pakistan</a>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <h4>Email</h4>
-            <a href="mailto:info@ohyrus.com">info@ohyrus.com</a>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <h4>Sales Office</h4>
-            <p>300 International Drive, Suite 100</p>
-            <p>Williamsville, NY 14221, USA</p>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div>
-            <h4>Development Center</h4>
-            <p>TIC — Technology Incubation Center</p>
-            <p>NUST, H-12, Islamabad, Pakistan</p>
-          </div>
+        <div>
+          <h4>Phone</h4>
+          <p>+1 <span class="blurred">(716) 817-8555</span> — USA</p>
+          <p>+92 <span class="blurred">(0)313 555-4885</span> — Pakistan</p>
         </div>
       </div>
-
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <a id="contact-email-inline" href="#" style="font-size:.9rem;color:var(--white);display:block;"></a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h4>Sales Office</h4>
+          <p><span class="blurred">300 International Drive, Suite 100, Williamsville, NY 14221,</span> USA</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Development Center</h4>
+          <p><span class="blurred">TIC — Technology Incubation Center, NUST, H-12, Islamabad,</span> Pakistan</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ── Footer ── -->
 <footer>
+  <div style="background:rgba(245,158,11,.07);border-top:1px solid rgba(245,158,11,.18);padding:14px 0;text-align:center;">
+    <div class="container">
+      <p style="font-size:.82rem;color:var(--accent);font-weight:600;letter-spacing:.02em;">
+        Archive &mdash; Ohyrus Inc. operated from 2011 to 2013. The company was fully self-funded by its founders and was profitable.
+      </p>
+    </div>
+  </div>
   <div class="container footer-inner">
     <div>
       <div class="logo" style="margin-bottom:6px;">Ohyrus<span>.</span></div>
-      <p class="footer-copy">© 2014 Ohyrus Inc. All Rights Reserved.<br>Grow Exponentially by Leveraging Web 2.0, Mobile 2.0 &amp; Internet Marketing.</p>
+      <p class="footer-copy">© 2011&ndash;2013 Ohyrus Inc. All Rights Reserved.<br>Grow Exponentially by Leveraging Web 2.0, Mobile 2.0 &amp; Internet Marketing.</p>
     </div>
     <div class="footer-links">
       <a href="#home">Home</a>
@@ -1104,13 +1085,16 @@
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Contact form mock submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('form-success').style.display = 'block';
-    e.target.reset();
-    setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 5000);
-  }
+  // Bot-protected email assembly — not present in HTML source
+  (function() {
+    var u = 'sia', d = 'syedirfanajmal', t = 'com';
+    var addr = u + '@' + d + '.' + t;
+    var href = 'mailto:' + addr;
+    ['contact-email-link', 'contact-email-inline'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.textContent = addr; el.href = href; }
+    });
+  })();
 
   // Scroll-reveal via IntersectionObserver
   const observer = new IntersectionObserver((entries) => {
