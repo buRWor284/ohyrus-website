@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ohyrus Inc. — Grow Exponentially</title>
+  <meta name="description" content="Ohyrus Inc. is an International Digital Media Company helping SMEs grow exponentially by leveraging Web 2.0, Mobile 2.0 & Internet Marketing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #0b1526;
+      --navy-mid:  #162033;
+      --navy-card: #1a2740;
+      --blue:      #3b82f6;
+      --blue-lt:   #60a5fa;
+      --blue-dim:  rgba(59,130,246,.12);
+      --white:     #ffffff;
+      --off-white: #f0f4fa;
+      --gray:      #94a3b8;
+      --gray-lt:   #cbd5e1;
+      --text:      #e2e8f0;
+      --accent:    #f59e0b;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    section { scroll-margin-top: 72px; }
+
+    /* ── Utilities ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      background: var(--blue-dim);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(59,130,246,.4); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.25);
+    }
+    .btn-outline:hover { border-color: var(--blue-lt); color: var(--blue-lt); }
+    .divider { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin-bottom: 24px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,21,38,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--blue); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--gray-lt);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { margin-left: 8px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; display: block; transition: all .3s; }
+
+    /* ── Hero ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 80px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(59,130,246,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(245,158,11,.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 2px;
+      background: var(--blue-lt);
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--blue-lt);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.06);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .stat {
+      padding: 28px 24px;
+      background: var(--navy-card);
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+    .stat-num span { color: var(--blue-lt); }
+    .stat-label { font-size: .8rem; color: var(--gray); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ── Clients strip ── */
+    #clients {
+      padding: 56px 0;
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .clients-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .clients-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px 24px;
+    }
+    .client-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 10px;
+      padding: 12px 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .client-chip:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .client-icon {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: var(--blue-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--blue-lt);
+      flex-shrink: 0;
+    }
+    .client-name { font-size: .9rem; font-weight: 600; color: var(--white); }
+    .client-loc { font-size: .75rem; color: var(--gray); }
+
+    /* ── Services ── */
+    #services { padding: 100px 0; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color .25s, transform .25s;
+    }
+    .service-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--blue-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .service-card p { font-size: .9rem; color: var(--gray); line-height: 1.65; }
+
+    /* ── About ── */
+    #about {
+      padding: 100px 0;
+      background: var(--navy-mid);
+      border-radius: 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: .95rem;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .about-text p strong { color: var(--white); }
+    .about-highlights { margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      background: var(--navy-card);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .highlight-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .highlight-item p { font-size: .88rem; color: var(--gray); margin: 0; }
+    .highlight-item p strong { color: var(--white); }
+    .offices { display: flex; flex-direction: column; gap: 20px; }
+    .office-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .office-badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(245,158,11,.1);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .office-card h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .office-card p { font-size: .88rem; color: var(--gray); }
+    .office-card .contact-line {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-line a { font-size: .85rem; color: var(--blue-lt); }
+    .contact-line a:hover { text-decoration: underline; }
+
+    /* ── Case Studies ── */
+    #case-studies { padding: 100px 0; }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .case-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color .25s, transform .25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .case-card:hover { border-color: var(--blue); transform: translateY(-4px); }
+    .case-header {
+      padding: 28px 28px 0;
+    }
+    .case-number {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .case-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .case-card p { font-size: .88rem; color: var(--gray); padding: 0 28px; }
+    .case-tags {
+      padding: 20px 28px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .tech-tag {
+      font-size: .72rem;
+      font-weight: 600;
+      background: rgba(59,130,246,.1);
+      color: var(--blue-lt);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(59,130,246,.2);
+    }
+
+    /* ── Testimonials ── */
+    #testimonials {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testi-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .quote-mark {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--blue);
+      font-family: Georgia, serif;
+      opacity: .6;
+    }
+    .testi-card blockquote {
+      font-size: .88rem;
+      color: var(--gray-lt);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .testi-author {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding-top: 16px;
+    }
+    .testi-author strong { font-size: .9rem; color: var(--white); display: block; }
+    .testi-author span { font-size: .78rem; color: var(--gray); }
+
+    /* ── Contact ── */
+    #contact { padding: 100px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: .82rem; font-weight: 600; color: var(--gray-lt); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--navy-card);
+      border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: .9rem;
+      color: var(--white);
+      font-family: inherit;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--blue); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    ::placeholder { color: var(--gray); }
+    .form-submit .btn { width: 100%; justify-content: center; padding: 14px; font-size: 1rem; }
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+    .info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .info-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon svg { width: 20px; height: 20px; }
+    .info-item h4 { font-size: .82rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+    .info-item p, .info-item a { font-size: .9rem; color: var(--white); display: block; }
+    .info-item a:hover { color: var(--blue-lt); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 40px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy { font-size: .82rem; color: var(--gray); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: .82rem; color: var(--gray); transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── Animations ── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fade-up .7s ease both; }
+    .fade-up-d1 { animation-delay: .1s; }
+    .fade-up-d2 { animation-delay: .2s; }
+    .fade-up-d3 { animation-delay: .3s; }
+    .fade-up-d4 { animation-delay: .45s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+      .stat { padding: 18px 12px; }
+      .stat-num { font-size: 1.6rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: var(--navy);
+        padding: 24px;
+        gap: 20px;
+        border-top: 1px solid rgba(255,255,255,.06);
+      }
+      .form-row { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .clients-grid { gap: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">Ohyrus<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#contact" class="btn btn-primary nav-cta" style="padding:9px 20px;font-size:.85rem;">Get in Touch</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow fade-up">International Digital Media Company</div>
+        <h1 class="fade-up fade-up-d1">Grow <em>Exponentially</em> with Web &amp; Mobile</h1>
+        <p class="hero-desc fade-up fade-up-d2">
+          Ohyrus Inc. helps SMEs and start-ups leverage the full power of Web 2.0, Mobile 2.0,
+          and Internet Marketing — from custom web systems to data-driven growth strategies.
+        </p>
+        <div class="hero-actions fade-up fade-up-d3">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+      <div class="fade-up fade-up-d2">
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">24<span>+</span></div>
+            <div class="stat-label">Clients Served</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">2<span>+</span></div>
+            <div class="stat-label">Continents</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10<span>+</span></div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="stat" style="grid-column: span 3;">
+            <div style="font-size:.85rem;color:var(--gray);margin-bottom:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;">Tagline</div>
+            <div style="font-size:1rem;color:var(--white);font-style:italic;font-weight:500;">
+              "Grow Exponentially by Leveraging Web 2.0, Mobile 2.0 &amp; Internet Marketing"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Client Logos ── -->
+<section id="clients">
+  <div class="container">
+    <p class="clients-label">Trusted by innovative start-ups and global enterprises</p>
+    <div class="clients-grid">
+      <div class="client-chip">
+        <div class="client-icon">GIZ</div>
+        <div>
+          <div class="client-name">GIZ</div>
+          <div class="client-loc">Germany (Federal Enterprise)</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">AL</div>
+        <div>
+          <div class="client-name">Apartment List</div>
+          <div class="client-loc">San Francisco, USA</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">Z</div>
+        <div>
+          <div class="client-name">Zaarly</div>
+          <div class="client-loc">USA</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">YS</div>
+        <div>
+          <div class="client-name">YoorStore</div>
+          <div class="client-loc">Mobile C2C Marketplace</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">ITS</div>
+        <div>
+          <div class="client-name">ITSdirect</div>
+          <div class="client-loc">Australia</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">UB</div>
+        <div>
+          <div class="client-name">UsedBook</div>
+          <div class="client-loc">Milan, Italy</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">ABC</div>
+        <div>
+          <div class="client-name">Austria Business Centre</div>
+          <div class="client-loc">Global (Kleindienst Group)</div>
+        </div>
+      </div>
+      <div class="client-chip">
+        <div class="client-icon">HB</div>
+        <div>
+          <div class="client-name">Hotel Bonanza</div>
+          <div class="client-loc">Hospitality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section id="services">
+  <div class="container">
+    <span class="tag">What We Do</span>
+    <h2 class="section-title">Services Built for<br>High-Growth Businesses</h2>
+    <p class="section-subtitle">
+      A unique mix of innovative products and services spanning three core domains —
+      delivered by experts obsessed with your growth.
+    </p>
+    <div class="services-grid">
+
+      <!-- Web 2.0 -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3>Responsive Web 2.0 Design &amp; Development</h3>
+        <p>Custom, responsive web applications built for scale. We design and develop smart internet-enabled systems that look great on every device and drive real business outcomes.</p>
+      </div>
+
+      <!-- Mobile -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/>
+          </svg>
+        </div>
+        <h3>Mobile Application Development</h3>
+        <p>Mobile-first products for iOS and Android. From C2C marketplaces to enterprise tools, we build mobile apps that keep users coming back.</p>
+      </div>
+
+      <!-- Internet Marketing -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <h3>Internet Marketing &amp; Online Strategy</h3>
+        <p>Comprehensive B2B/B2C online strategies, social media marketing, and growth campaigns — designed to multiply your digital reach and revenue.</p>
+      </div>
+
+      <!-- Data Mining -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <h3>Data Mining &amp; Web Scraping</h3>
+        <p>Our core technical competency. We build robust, large-scale data scraping and mining pipelines using custom PHP libraries and multi-CURL systems — powering real-time intelligence for your business.</p>
+      </div>
+
+      <!-- SEO -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3>Search Engine Optimisation</h3>
+        <p>Rank higher, get found faster. We develop and execute SEO strategies tailored for competitive markets — combining technical optimisation with content and link strategy.</p>
+      </div>
+
+      <!-- Brand Identity -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+          </svg>
+        </div>
+        <h3>Brand Identity &amp; Digital Design</h3>
+        <p>Logo design, brand guidelines, and visual identity systems that make your business instantly recognisable — whether you're a brand-new start-up or an established SME ready for a refresh.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="tag">About Ohyrus</span>
+        <h2 class="section-title">Built for Start-Ups.<br>Proven with Enterprises.</h2>
+        <div class="divider"></div>
+        <p>
+          <strong>Founded in October 2011</strong>, Ohyrus Inc. is an international digital media company
+          headquartered in New York, USA. We specialise in helping SMEs and high-growth start-ups
+          harness the power of the internet through smart, data-driven products and services.
+        </p>
+        <p>
+          In most cases, our work makes efficient use of our core competency within
+          <strong>data mining</strong> — enabling clients to extract real competitive advantage from the web.
+        </p>
+        <p>
+          Our founders have extensive experience starting successful ventures after studying at
+          top-tier universities and working with the best firms nationally and internationally.
+          Our team spans talented software engineers, designers, e-business strategists,
+          content writers, and internet marketers.
+        </p>
+        <p>
+          <strong>Our relatively small size</strong> means we deliver quick, personalised service
+          — something larger agencies simply can't match. We know how hard it is for start-ups
+          and SMEs to navigate the best online strategy, and that's exactly where we thrive.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <p><strong>NYC Sales Office</strong> — 300 International Drive, Suite 100, Williamsville, New York 14221, USA</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <p><strong>Development Center</strong> — TIC (Technology Incubation Center), NUST, H-12, Islamabad — Pakistan's best incubation center, supported by one of the world's top-300 universities</p>
+          </div>
+        </div>
+      </div>
+      <div class="offices">
+        <span class="tag">Our Offices</span>
+        <div class="office-card">
+          <span class="office-badge">Sales Office</span>
+          <h4>New York, USA</h4>
+          <p>300 International Drive, Suite 100<br>Williamsville, NY 14221, United States</p>
+          <div class="contact-line">
+            <a href="tel:+17168178555">+1 (716) 817-8555</a>
+            <a href="mailto:info@ohyrus.com">info@ohyrus.com</a>
+          </div>
+        </div>
+        <div class="office-card">
+          <span class="office-badge" style="color:#10b981;background:rgba(16,185,129,.1);">Development Center</span>
+          <h4>Islamabad, Pakistan</h4>
+          <p>TIC — Technology Incubation Center<br>NUST, H-12, Islamabad, Pakistan</p>
+          <div class="contact-line">
+            <a href="tel:+923135554885">+92 (0)313 555-4885</a>
+          </div>
+        </div>
+        <div class="office-card">
+          <span class="office-badge" style="color:#8b5cf6;background:rgba(139,92,246,.1);">Enterprise Partner</span>
+          <h4>GIZ — Sustainable Development</h4>
+          <p>We are proud to count GIZ, the German Federal Enterprise with 17,000+ staff globally and a business volume of EUR 2 billion, among our clients in international development.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Case Studies ── -->
+<section id="case-studies">
+  <div class="container">
+    <span class="tag">Case Studies</span>
+    <h2 class="section-title">Work That Speaks<br>for Itself</h2>
+    <p class="section-subtitle">
+      A selection of projects across web engineering, growth marketing, and brand identity —
+      each representing a distinct challenge and a measurable result.
+    </p>
+    <div class="cases-grid">
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-number">Case Study 01 — Web Engineering</span>
+          <h3>Price Comparison Search Engine</h3>
+        </div>
+        <p>
+          Built a comprehensive travel price comparison portal allowing users to search, study,
+          and compare real-time data aggregated from 24 different hotels and airline search engines.
+          Users could make bookings directly through the platform after comparing options.
+        </p>
+        <p style="margin-top:12px;">
+          The system relied on an extensive, custom-built data scraping pipeline using multi-CURL
+          for timely accumulation of accurate pricing data at scale, supplemented by Google AdSense
+          and affiliate marketing integration.
+        </p>
+        <div class="case-tags">
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">jQuery</span>
+          <span class="tech-tag">HTML/CSS3</span>
+          <span class="tech-tag">Data Scraping</span>
+          <span class="tech-tag">CMS</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-number">Case Study 02 — Internet Marketing</span>
+          <h3>YoorStore Social Media Campaign</h3>
+        </div>
+        <p>
+          Designed and executed a comprehensive social media marketing campaign for YoorStore —
+          a mobile-based C2C Classifieds Marketplace. The campaign spanned Facebook, Twitter,
+          and additional growth channels to drive user acquisition and marketplace activity.
+        </p>
+        <p style="margin-top:12px;">
+          Ohyrus coordinated content strategy, community engagement, and paid amplification to
+          build momentum for the platform's early user base across multiple markets.
+        </p>
+        <div class="case-tags">
+          <span class="tech-tag">Social Media Marketing</span>
+          <span class="tech-tag">Facebook Ads</span>
+          <span class="tech-tag">Twitter</span>
+          <span class="tech-tag">Growth Strategy</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-number">Case Study 03 — Brand Identity</span>
+          <h3>Optimum Photography — Complete Brand Identity</h3>
+        </div>
+        <p>
+          Designed the complete visual brand identity for Optimum Photography — including logo,
+          colour palette, typography system, and supporting brand collateral. The result was a
+          cohesive, professional identity that positioned the studio for growth.
+        </p>
+        <p style="margin-top:12px;">
+          The project demonstrates Ohyrus's capability to go beyond code — delivering end-to-end
+          digital and brand presence for clients who need a complete solution.
+        </p>
+        <div class="case-tags">
+          <span class="tech-tag">Adobe Photoshop</span>
+          <span class="tech-tag">Logo Design</span>
+          <span class="tech-tag">Brand Guidelines</span>
+          <span class="tech-tag">Visual Identity</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ── -->
+<section id="testimonials">
+  <div class="container">
+    <span class="tag">Testimonials</span>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-subtitle section-subtitle" style="margin-bottom:40px;">
+      Real words from real clients — from start-ups in Atlanta to enterprises in Montreal.
+    </p>
+    <div class="testimonials-grid">
+
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          The Ohyrus Inc. team are absolute experts in their field. Their work has been the
+          highest quality at the most affordable price. I will not be using any other to work
+          on any web-based project. Ohyrus Inc. are our guys for the long run over at Fayda Institute.
+        </blockquote>
+        <div class="testi-author">
+          <strong>Ibrahim Dimson</strong>
+          <span>Fayda Institute, Atlanta, Georgia, USA</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          Ohyrus Inc. does everything in its power to make an online project successful. They have
+          the insight, knowledge and clear-mindedness to know in advance what is required. They take
+          the time to understand what is at the heart of a company, big or small. With the quality
+          of your work and your absolute 100% honesty and integrity, I expect your business to grow
+          exponentially.
+        </blockquote>
+        <div class="testi-author">
+          <strong>Janice Cohen</strong>
+          <span>Janice Cohen Nutrition Consulting, Montreal, Canada</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          A great programming and web design company. They have a real advanced competency.
+          They did an excellent job, were always available, gave me regular progress updates.
+          They have fabulously demonstrated what maximum cooperation and flexibility means.
+          I'm very satisfied!
+        </blockquote>
+        <div class="testi-author">
+          <strong>Federico Vicino</strong>
+          <span>UsedBook, Milan, Italy</span>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          After understanding the Automated Data Scraping task, Ohyrus Inc. were able to proceed
+          with speed and accuracy. They are extremely capable in handling such a complex task and
+          were always on hand to answer queries and deal with feedback accordingly. We would
+          definitely use the expertise of Ohyrus Inc. again.
+        </blockquote>
+        <div class="testi-author">
+          <strong>Suzie Barber</strong>
+          <span>Hotel Bonanza</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <span class="tag">Get in Touch</span>
+    <h2 class="section-title">Let's Talk About<br>Your Project</h2>
+    <p class="section-subtitle">
+      Tell us about your requirements. We'll get back to you within one business day.
+    </p>
+    <div class="contact-grid">
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input id="name" type="text" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input id="email" type="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input id="subject" type="text" placeholder="e.g. Web Development Project" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
+        </div>
+        <div class="form-group" style="flex-direction:row;align-items:center;gap:10px;">
+          <input type="checkbox" id="copy" style="width:16px;height:16px;accent-color:var(--blue);" />
+          <label for="copy" style="font-size:.85rem;color:var(--gray);cursor:pointer;">Send a copy to myself</label>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </div>
+        <div id="form-success" style="display:none;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:8px;padding:14px;font-size:.88rem;color:#10b981;margin-top:8px;">
+          ✓ Message sent! We'll be in touch shortly.
+        </div>
+      </form>
+
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.13 1.05.4 2.07.7 3.05a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.03-1.03a2 2 0 012.11-.45c.98.3 2 .57 3.05.7A2 2 0 0122 14z"/></svg>
+          </div>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+17168178555">+1 (716) 817-8555 — USA</a>
+            <a href="tel:+923135554885">+92 (0)313 555-4885 — Pakistan</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:info@ohyrus.com">info@ohyrus.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Sales Office</h4>
+            <p>300 International Drive, Suite 100</p>
+            <p>Williamsville, NY 14221, USA</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h4>Development Center</h4>
+            <p>TIC — Technology Incubation Center</p>
+            <p>NUST, H-12, Islamabad, Pakistan</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="logo" style="margin-bottom:6px;">Ohyrus<span>.</span></div>
+      <p class="footer-copy">© 2014 Ohyrus Inc. All Rights Reserved.<br>Grow Exponentially by Leveraging Web 2.0, Mobile 2.0 &amp; Internet Marketing.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Contact form mock submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { document.getElementById('form-success').style.display = 'none'; }, 5000);
+  }
+
+  // Scroll-reveal via IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.service-card, .case-card, .testi-card, .client-chip, .office-card, .highlight-item, .info-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
